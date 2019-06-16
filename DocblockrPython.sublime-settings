@@ -3,7 +3,7 @@
 	 * This option dictates which style of docstrings to use, when parsing docstrings
 	 *
 	 * Available Options:
-	 * [PEP0257, docblock, google, numpy, sphinx]
+	 * [PEP0257, docblock, google, numpy, sphinx, sphinx2]
 	 */
 	"formatter": "docblock"
 }
