@@ -35,5 +35,6 @@ def populate_registry():
         docblock,
         google,
         sphinx,
+        sphinx2,
         numpy
     )
