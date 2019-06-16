@@ -7,6 +7,14 @@ class Sphinx2Formatter(Base):
 
     name = 'sphinx2'
 
+    def summary(self):
+        """Create snippet string for the summary line."""
+        return '\n{}'.format(self._generate_field('summary'))
+
+    def description(self):
+        """Create snippet string for the description body."""
+        return '\n\n'
+
     def decorators(self, attributes):
         """Create snippet string for a list of decorators."""
         return ''
@@ -23,8 +31,8 @@ class Sphinx2Formatter(Base):
         for attr in attributes['arguments']:
             section += template.format(
                 name=self._generate_field('name', attr['name']),
-                description=self._generate_field('description'),
                 type=self._generate_field('type', attr['type']),
+                description=self._generate_field('description'),
             )
 
         section += self.keyword_arguments(attributes['keyword_arguments'])
@@ -39,9 +47,9 @@ class Sphinx2Formatter(Base):
         for attr in attributes:
             section += template.format(
                 name=self._generate_field('name', attr['name']),
+                type=self._generate_field('type', attr['type']),
                 description=self._generate_field('description'),
                 default=self._generate_field('default', attr['default']),
-                type=self._generate_field('type', attr['type']),
             )
 
         return section
@@ -52,8 +60,8 @@ class Sphinx2Formatter(Base):
         template = ':returns {{{type}}: {description}.\n'
 
         section += template.format(
-            description=self._generate_field('description'),
             type=self._generate_field('type', attribute['type']),
+            description=self._generate_field('description'),
         )
 
         return section
@@ -64,8 +72,8 @@ class Sphinx2Formatter(Base):
         template = ':returns {{{type}}}: {description}.\n'
 
         section += template.format(
-            description=self._generate_field('description'),
             type=self._generate_field('type', attribute['type']),
+            description=self._generate_field('description'),
         )
 
         return section
@@ -90,8 +98,8 @@ class Sphinx2Formatter(Base):
         for attr in attributes:
             section += template.format(
                 name=self._generate_field('name', attr['name']),
-                description=self._generate_field('description'),
                 type=self._generate_field('type', attr['type']),
+                description=self._generate_field('description'),
             )
 
         return section
