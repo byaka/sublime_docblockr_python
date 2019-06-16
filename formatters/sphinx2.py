@@ -26,12 +26,12 @@ class Sphinx2Formatter(Base):
     def arguments(self, attributes):
         """Create snippet string for a list of arguments."""
         section = ''
-        template = ':param {name} {type}: {description}.\n'
+        template = ':param {type} {name}: {description}.\n'
 
         for attr in attributes['arguments']:
             section += template.format(
-                name=self._generate_field('name', attr['name']),
                 type=self._generate_field('type', attr['type']),
+                name=self._generate_field('name', attr['name']),
                 description=self._generate_field('description'),
             )
 
@@ -42,12 +42,12 @@ class Sphinx2Formatter(Base):
     def keyword_arguments(self, attributes):
         """Create snippet string for a list of keyword arguments."""
         section = ''
-        template = ':param {name} {type}: {description} (defaults to {default}).\n'
+        template = ':param {type} {name}: {description} (defaults to {default}).\n'
 
         for attr in attributes:
             section += template.format(
-                name=self._generate_field('name', attr['name']),
                 type=self._generate_field('type', attr['type']),
+                name=self._generate_field('name', attr['name']),
                 description=self._generate_field('description'),
                 default=self._generate_field('default', attr['default']),
             )
@@ -93,12 +93,12 @@ class Sphinx2Formatter(Base):
     def variables(self, attributes):
         """Create snippet string for a list of variables."""
         section = ''
-        template = ':param {name} {type}: {description}\n'
+        template = ':param {type} {name}: {description}\n'
 
         for attr in attributes:
             section += template.format(
-                name=self._generate_field('name', attr['name']),
                 type=self._generate_field('type', attr['type']),
+                name=self._generate_field('name', attr['name']),
                 description=self._generate_field('description'),
             )
 
